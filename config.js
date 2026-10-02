@@ -9,11 +9,11 @@ const VIEWER_CONFIG = {
     pageTitle: "3D Model Viewer",
 
     // 画面左上に表示する作品タイトル（配列の要素ごとに改行されます）
-    displayTitle: ["Sample Model", "3D Model Viewer"],
+    displayTitle: ["セルリアン", "3D Model Viewer"],
 
     // 表示する3Dモデルのファイル名（.gltf / .glb）。
     // 「Assets」フォルダ内に配置し、ファイル名のみを指定してください（例: "index.gltf"）
-    modelFile: "index.gltf",
+    modelFile: "SPP.gltf",
 
     // モデルの初期位置・回転（度）・拡大縮小率
     modelPosition: { x: 0, y: 0, z: 0 },
