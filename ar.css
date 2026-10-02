@@ -1,0 +1,101 @@
+/* マーカー型AR（ar-marker.html）／画像型AR（ar-image.html）共通スタイル */
+body { margin: 0; overflow: hidden; background: #12181f; }
+
+/* A-Frame が既定で挿入する VR/AR 突入ボタンや通知モーダルを隠す（自前UIに統一するため） */
+.a-enter-vr,
+.a-enter-ar,
+.a-orientation-modal,
+.a-loader-title { display: none !important; }
+
+/* カメラ映像(#arjs-video)とcanvasのサイズ・位置は AR.js／A-Frame が
+   カメラ解像度に合わせて計算し、画面全体を覆うように配置する。
+   ここで width/height を上書きすると、その計算（中央寄せのための margin-left など）が
+   壊れて映像がずれる（画面の片側が空白になる）ため、あえて何も指定しない。 */
+
+/* マーカー未検出時の案内（画面上部中央） */
+#ar-hint {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 40px);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    text-align: center;
+    z-index: 100;
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+#ar-hint.hidden {
+    opacity: 0;
+}
+
+/* 画像AR（ar-image.html）で記述子が未設定のときのセットアップ案内 */
+#ar-setup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #12181f;
+    z-index: 90;
+}
+#ar-setup.hidden { display: none; }
+#ar-setup-inner {
+    max-width: 520px;
+    color: #e8edf2;
+    font-family: sans-serif;
+    line-height: 1.7;
+}
+#ar-setup-inner h1 {
+    font-size: 18px;
+    margin: 0 0 16px;
+}
+#ar-setup-inner p {
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+#ar-setup-inner code {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* 右下：戻る／モード切り替えボタン */
+#ar-btn-group {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 110;
+}
+#ar-btn-group a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 56px;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 10px;
+    text-decoration: none;
+}
+#ar-btn-group a:active { background: rgba(0, 0, 0, 0.8); }
+#ar-btn-group svg { width: 22px; height: 22px; }
+.ar-btn-label {
+    font-family: sans-serif;
+    font-size: 10px;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+/* MIT License | github.com/ChikumaTateshina/Web3DViewer */
